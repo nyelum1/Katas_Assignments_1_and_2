@@ -13,4 +13,10 @@ logging.basicConfig(
     ],
 )
 
-logging.info("testing logger for printing and saving log file to disk")
+parser = argparse.ArgumentParser()
+parser.add_argument("filename", type=Path)
+args = parser.parse_args()
+
+path = Path(args.filename)
+
+logging.info("testing argparse for file inputs")
