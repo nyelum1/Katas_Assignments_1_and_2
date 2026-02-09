@@ -51,6 +51,14 @@ def insert_observation(conn, station_id, temp):
     conn.commit()
 
 
+def update_station_name(conn, station_id, new_name):
+    """Updates the name of an existing station."""
+    query = "UPDATE Stations SET name = ? WHERE station_id = ?"
+    conn.execute(query, (new_name, station_id))
+    conn.commit()
+
+
+
 def seed_data(conn):
     """Populates the database with sample stations and observations."""
     # Add Stations
