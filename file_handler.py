@@ -27,6 +27,8 @@ with open(args.filename, 'r') as file:
     logging.info(f"Reading file: {args.filename}")
     df = pd.read_csv(file)
 
-    logging.info("writing df.head to screen")
-    logging.info(df.head)
+
+# Filtering
+logging.info("filtering the dataframe")
+filtered_df = df[df['REPORT_TYPE'] == "FM-15"]
 
