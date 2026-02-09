@@ -1,0 +1,11 @@
+# --- Python Specific ---
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+
+# --- VS Code Specific ---
+.vscode/
+*.code-workspace
+
+# --- OS Specific ---
+.DS_Store
