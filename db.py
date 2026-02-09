@@ -57,6 +57,24 @@ def update_station_name(conn, station_id, new_name):
     conn.execute(query, (new_name, station_id))
     conn.commit()
 
+def delete_observation(conn, obs_id):
+    """Deletes a specific observation record by ID."""
+    query = "DELETE FROM Observations WHERE obs_id = ?"
+    conn.execute(query, (obs_id,))
+    conn.commit()
+
+def get_station_report(conn):
+    """
+    Joins Stations and Observations to return a list of 
+    all readings with their corresponding station names.
+    """
+    query = '''
+        SELECT s.name, o.temperature, o.timestamp
+        FROM Stations s
+        JOIN Observations o ON s.station_id = o.station_id
+        ORDER BY o.timestamp DESC
+    '''
+    return conn.execute(query).fetchall()
 
 
 def seed_data(conn):
