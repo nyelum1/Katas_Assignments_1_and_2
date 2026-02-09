@@ -3,6 +3,7 @@ import pandas as pd
 import argparse
 import logging
 
+
 # Setup the Logger
 logging.basicConfig(
     level=logging.INFO,
@@ -25,8 +26,13 @@ logging.info(f"file name : {path}")
 # This ensures the file is handled safely
 with open(path, 'r') as file:
     logging.info(f"Reading file: {path}")
-    df = pd.read_csv(file)
 
+    if path.suffix == ".csv" :
+        df = pd.read_csv(file)
+    elif path.suffix == ".json" :
+        df = pd.read_json(path)
+    else :
+        raise Exception(f"file tyep {path.suffix}  cannot be read")
 
 # Filtering
 logging.info("filtering the dataframe")

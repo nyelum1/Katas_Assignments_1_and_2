@@ -1,0 +1,10 @@
+# --- Python Specific ---
+__pycache__/
+
+
+# --- VS Code Specific ---
+.vscode/
+*.code-workspace
+
+# --- OS Specific ---
+.DS_Store
